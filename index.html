@@ -13,19 +13,23 @@
                     <a href="#" class="logo">
                         <img src="template/img/logo.png" alt="FELIETON Mariusza K"/>
                     </a>
-                    <a href="#">O mnie</a>
-                    <a href="#">Szukaj</a>
-                    <!--<a href="#">🔎</a><a href="#">&#8592; &#8594;</a>!-->
-                    <a class="right" href="#">&#10095;</a>
-                    <a class="right" href="#">1</a>
-                    <a class="right" href="#">&#10094;</a>
+                    
+                    
+                    <!--<a href="#">O mnie</a><a href="#">🔎</a><a href="#">&#8592; &#8594;</a>!-->
+                    <a href="#">&#10094;</a>
+                    <a href="#">1</a>
+                    <a href="#">&#10095;</a>
+
+                    <div class="search right"><input id="searchtext" placeholder="Szukaj"><a id="search">🔎</a></div>
+
+                    
                 </div>
             </header>
             <div class="content">
                 <aside class="content-side">
-                    <div class="logo">
+                    <a href="#" class="logo">
                         <img src="template/img/logo.png" alt="FELIETON Mariusza K"/>
-                    </div>
+                    </a>
                     <table class="content-side-info">
                         <tr><td>Korekta:</td><td>Marian Kowalski</td></tr>
                         <tr><td>Opublikowano:</td><td>wczoraj</td></tr>
@@ -97,8 +101,9 @@
 
             </div>
         </div>
-        
+        <gcse:searchresults-only gname="searchOnlyCSE" enableOrderBy="false" sort_by="date" noResultsString="Nic nie znaleziono" linkTarget="_self" queryParameterName="search"></gcse:searchresults-only>
         <div id="fb-root"></div>
+        <script src="template/js/jquery.min.js"></script>
         <script>(function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
@@ -124,5 +129,33 @@
         (d.head || d.body).appendChild(s);
         })();
         </script>
+         <script>
+window.__gcse = {
+  callback: googleCSELoaded
+}; 
+function googleCSELoaded() {
+  // The hook in question.
+  $("#search").click(function() {
+    var searchText = $("#searchtext").val();
+    if(searchText.trim().length == 0){
+        $("#searchtext").focus();
+        return;
+    }
+    var element = google.search.cse.element.getElement('searchOnlyCSE');
+    element.execute(searchText);
+  })
+}
+
+
+  (function() {
+    var cx = '001082022360898461399:564mhoe2l9w';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
     </body>
 </html>

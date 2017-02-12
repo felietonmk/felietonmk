@@ -1,0 +1,225 @@
+// compress: true, sourceMap: true
+
+@import (less) "reset.css";
+@import "typography";
+
+@background: #f8fafb;
+@side-background: #C1D7C9;
+@text: #07090E;
+@nav: #efefef;
+@nav-hover: #C1D7C9;
+
+@side-width:20%;
+@header-height:38px;//42px;
+@main-width:100% - @side-width;
+
+
+//@header-padding : @side-width - 5%;
+
+* {
+    box-sizing:border-box;
+}
+
+
+body {
+    background: @background;
+    font-family: 'Dosis', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:100%;
+    color:@text;
+}
+
+
+a {
+    text-decoration:none;
+}
+
+::selection {
+  background: #d9d9d9; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #d9d9d9; /* Gecko Browsers */
+}
+
+.center, .header-content {
+    display:block;
+    width:100%;
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    position:relative;
+
+    &:after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+     }
+}
+
+.footer {
+    display:block;
+    position:absolute;
+    bottom:150px;
+    z-index: -1;
+    width:100%;
+    position: absolute;
+    bottom: 10px;
+    width: 20%;
+    padding: 0 5px;
+    /* margin-top: 5px; */
+    font-size: .85em;
+    font-weight:500;
+    line-height:130%;
+    a {
+        //font-weight:600;
+        text-decoration:underline;
+        color:@text;
+    }
+}
+
+.header {
+    z-index:1;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+
+    &-content {
+        overflow:hidden;
+        padding:5px;
+        padding-left: @side-width - 5%;
+        
+        //float:right;
+        height:@header-height + 5px;
+        
+        .logo {
+            display:none;
+            float: left;
+            margin-right:3px;
+            padding: 0;
+            width:@header-height;
+            height:@header-height;
+            > img {
+                width:100%;
+                height:auto;
+            }
+        }
+
+        a {
+            min-width:@header-height;
+            padding:0 @header-height/4 0 @header-height/4;
+            height:@header-height;
+            display:block;
+            text-align:center;
+            line-height:@header-height;
+            background:@nav;
+            float:left;
+            margin-right:3px;
+            font-weight:300;
+            font-size: 1em;
+            color:@text;
+
+            transition:background-color 500ms;
+            &:hover, &.hover {
+                background:@nav-hover;
+            }
+
+            &.right{
+                float:right;
+                margin-right:0;
+                margin-left:3px;
+                font-weight:500;
+            }
+        }
+    }
+}
+
+.fb-like, .twitter-share-button {
+    vertical-align: top;
+    display:inline-block;
+    margin:2px 0;
+}
+
+#disqus_thread {
+    margin-top:1em;
+}
+
+.content {
+    padding:5px;
+    padding-top:@header-height;
+    width:100%;
+
+    &-side {
+        margin-top:-@header-height + 5px;
+        display:block;
+        width:@side-width;
+        float:left;
+        padding-right:10px;
+        font-size: 0.95em;
+
+        .logo {
+            width:100%;
+            > img {
+                width:100%;
+                height:auto;
+            }
+        }
+
+        &-info {
+            margin-top:5px;
+            background: @side-background;
+            width:100%;
+            padding:10px;
+            display:block;
+
+            tr td {
+                padding-bottom:0.5em;
+            }
+
+            tr td:first-of-type, b{
+                font-weight:600;
+                padding-bottom:0em;
+                padding-right:0.3em;
+            }
+
+            tr:last-of-type{
+                td {
+                    padding-bottom:0em;
+                }
+            }
+
+            
+        }
+    }
+    &-main {
+        margin-top:20px;
+        padding:0 5px;
+        display:block;
+        width:@main-width;
+        float:left;
+    }
+
+}
+
+
+/* @media (luminosity: normal) {
+    body {
+        background: #f5f5f5;
+        color: #262626;
+    }
+}
+@media (luminosity: dim) {
+    body {
+        background: #e9e4e3;
+    }
+}
+@media (luminosity: washed) {
+    body {
+        background: #ffffff;
+    }
+}
+*/
+
+@import "responsive";

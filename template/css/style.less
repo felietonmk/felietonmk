@@ -117,7 +117,7 @@ a {
             float:left;
             margin-right:3px;
             font-weight:500;
-            font-size: 1em;
+            font-size: 1.2em;
             color:@text;
 
             transition:background-color 500ms;
@@ -125,20 +125,19 @@ a {
                 background:@nav-hover;
             }
 
-            &.right{
-                float:right;
-                margin-right:0;
-                margin-left:3px;
-                font-weight:500;
+            &.bigger{
+                font-size:2em;
+                font-weight:300;
+                line-height:1em;
             }
         }
         .search {
+            margin:0;
             float:right;
             width:200px;
             height:@header-height;
             position: relative;
             overflow:hidden;
-
             > input {
                 font-family: 'Dosis', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
                 font-size:1em;

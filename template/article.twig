@@ -1,0 +1,63 @@
+{% extends "index.twig" %}
+{% block attributes %}itemscope itemtype="http://schema.org/Article"{% endblock %}
+{% block content %}
+    <article class="article">
+        {#<h4 class="article-category"><a href="{{ article.category.url }}">{{ article.category.name }}</a></h4>#}
+        <h2 itemprop="headline">{{ article.title }}</h2>
+        <div class="hyphenate" itemprop="articleBody">
+            {{ article.content.html | raw }}
+        </div>
+    </article>
+    <div class="fb-comments" data-href="{{ article.url }}" data-width="100%" data-numposts="5"></div>
+{% endblock %}
+
+{% block side %}
+    <table class="content-side-info">
+        {% if (article.created | localDate) != (article.content.created | localDate) %}
+            <tr>
+                <td>Aktualizacja:</td><td>{{ article.created | localDate }}</td>
+            </tr>
+        {% endif %}
+        <tr>
+            <td>Publikacja:</td><td>{{ article.content.created | localDate }}</td>
+        </tr>
+    </table>
+    <table class="content-side-info">
+        {% for key, value in authors %}
+            <tr>
+                <td>{{ value.name }}:</td> {# role #}
+                <td>
+                    {% for author in value.users %}
+                        <span itemprop="{{ key }}" itemscope itemtype="http://schema.org/Person">
+                            {% set tag = author.url ? "a" : "span" %}
+                            <{{ tag }} itemprop="name" content="{{ author.name }}" {{ tag == "a" ? 'href="'~author.url~'"' }}>{{ author.name }}</{{ tag }}>{% if loop.length > 1 and loop.revindex != 1 %},{% endif %}
+                        </span>
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    {% if article.sources %}
+        <table class="content-side-info">
+            <tr>
+                <td>Źródła:</td>
+                <td class="article-footer-sources">
+                    {% for source in article.sources %}
+                        <span itemprop="isBasedOn">{{ source | raw }}</span>{% if loop.length > 1 and loop.revindex != 1 %}<br/>{% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+        </table>
+    {% endif %}
+
+    {% include "microdata.twig" %}
+
+    <div class="content-side-info" style="text-align:center;">
+        <div class="fb-like" data-href="{{ article.url }}" data-layout="button" data-action="like" data-size="large" data-show-faces="false" data-share="false"></div>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-text="{{ article.title }}" data-url="{{ article.url }}" data-hashtags="FelietonMK" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+    {#
+        authors : [{"role":"editor","name":"Xyz","site":"url"}]
+    #}
+{% endblock %}

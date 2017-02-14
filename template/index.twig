@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="{{ site.language|slice(0, 2)  }}">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <link href="{{ url.to("favicon.ico") }}" rel="shortcut icon"/>
+        <title>{% block title %}{{ page.title ? page.title~" — " }}{% endblock %}{{ site.name }}</title>
+        <meta name="description" content="{{ site.description }}">
+        <meta name="keywords" content="{{ site.keywords~","~(article.tags ? article.tags) }}">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="format-detection" content="address=no">
+
+        {% block meta %}
+            <meta property="og:title" content="{{ article ? article.title~" — "~site.name : site.name }}">
+            <meta property="og:description" content="{{ article ? article.url : site.description }}">
+            <meta property="og:url" content="{{ article ? article.url : site.url }}">
+            <meta property="og:image" content="{{ article.thumbnail ? article.thumbnail : url.images("banner.jpg") }}">
+            <meta property="og:site_name" content="{{ site.name }}"/> 
+            <meta property="fb:pages" content="1814137632137321"/>
+            <meta property="fb:app_id" content="214751045595488"/>
+            {% if article %}<meta property="og:type" content="article" /> {% endif %}
+        {% endblock %}
+
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ site.rss }}">
+
+        <link href="{{ url.images("banners/64.png") }}" rel="apple-touch-icon">
+        <link href="{{ url.images("banners/72.png") }}" rel="apple-touch-icon" sizes="72x72">
+        <link href="{{ url.images("banners/114.png") }}" rel="apple-touch-icon" sizes="114x114">
+        <link href="{{ url.images("banners/144.png") }}" rel="apple-touch-icon" sizes="144x144">
+
+        <meta name="application-name" content="{{ site.name }}">
+        <meta name="msapplication-TileColor" content="#222222">
+        <meta name="msapplication-square70x70logo" content="{{ url.images("banners/70.png") }}">
+        <meta name="msapplication-square150x150logo" content="{{ url.images("banners/150.png") }}">
+        <meta name="msapplication-wide310x150logo" content="{{ url.images("banners/310x150.jpg") }}">
+        <meta name="msapplication-square310x310logo" content="{{ url.images("banners/310.jpg") }}">
+
+        <link href="{{ url.theme('/css/Dosis/Dosis.css') }}" rel="stylesheet">
+        <link href="{{ url.theme('/css/css/style.css') }}" rel="stylesheet">
+
+        {% block css %}{% endblock %}
+    </head>
+    <body>
+        <div class="center">
+            <header class="header">
+                {% include "header.twig" %}
+            </header>
+            <div class="content" {% block attributes %}{% endblock %}>
+                <aside class="content-side">
+                    <a href="{{ site.url }}" class="logo">
+                        <img src="{{ url.images("logo.png") }}" alt="{{ site.name }}"/>
+                    </a>
+                    {% block side %}{% endblock %}
+                    {% block footer %}
+                        <footer class="footer">
+                            &copy; {{ "now"|date("Y") }} by <a href="{{ author.url }}">{{ author.name }}</a>.<br/>
+                            Dosis font by <a href="http://www.impallari.com/dosis">Impallari Type</a>.<br/>
+                            Hosted on <a href="http://github.com">GitHub</a>.
+                        </footer>
+                    {% endblock %}
+                </aside>
+                <div class="content-main">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+
+        <script src="{{ url.theme('/js/jquery.min.js') }}"></script>
+        <script src="{{ url.theme('/js/Hyphenator.min.js') }}"></script>
+        <script>
+            Hyphenator.config({
+                enablecache : true, 
+                defaultlanguage : '{{ site.language|slice(0, 2)  }}', 
+                useCSS3hyphenation : true
+            }); 
+            Hyphenator.run();
+        </script>
+        <script>
+            (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v2.8&appId=214751045595488";
+            fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-55824875-3', 'auto');
+            ga('send', 'pageview');
+        </script>
+        {% block js %}{% endblock %}
+	</body>
+</html>

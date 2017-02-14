@@ -1,0 +1,20 @@
+{% extends "index.twig" %}
+{% block content %}
+    <article class="article">
+        <h2 itemprop="headline">{{ page.title }}</h2>
+        <div class="hyphenate">
+            {{ page.content | raw }}
+        </div>
+    </article>
+{% endblock %}
+
+{% block side %}
+    <div class="content-side-info" style="padding:0">
+        <div class="fb-page" data-href="https://www.facebook.com/felietonmk/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"></div>
+    </div>
+    {#
+    <div class="content-side-info" style="text-align:center;">
+        <div class="fb-like" data-href="{{ site.url }}" data-layout="button" data-action="like" data-size="large" data-show-faces="false" data-share="false"></div>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-text="{{ site.name }}" data-url="{{ site.url }}" data-hashtags="{{ site.hashtag }}" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div> #}
+{% endblock %}

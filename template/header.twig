@@ -1,0 +1,16 @@
+<div class="header-content">
+	<a href="{{ site.url }}" class="logo">
+		<img src="{{ url.images("logo.png") }}" alt="{{ site.name }}"/>
+	</a>
+	
+	{% if article.id > 1 %}
+		<a class="bigger" href="#">&#8249;</a>
+	{% endif %}
+	<a href="#">{{ article.id + 1 }}</a>
+	<a class="bigger" href="#">&#8250;</a>
+
+	<form class="search" action="search.html">
+		<input type="text" name="q" id="tipue_search_input" placeholder="Szukaj" pattern=".{3,}" title="Wymagane są przynajmniej 3 znaki" required>
+		<button type="submit" id="search">🔎</button>
+	</form>
+</div>

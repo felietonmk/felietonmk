@@ -1,0 +1,20 @@
+<meta-data>
+    {% block custom %}
+        <meta itemprop="isAccessibleForFree" content="True"/>
+        <meta itemprop="datePublished" content="{{ article.created | isoDate }}"/>
+        <meta itemprop="dateModified" content="{{ article.modified | isoDate }}"/>
+        <meta itemprop="dateCreated" content="{{ article.created | isoDate }}"/>
+        <meta itemprop="inLanguage" content="pl-PL"/>
+        <meta itemprop="url" content="{{ article.url }}"/>
+        <meta itemprop="version" content="{{ article.version }}"/>
+        <meta itemprop="image" content="{{ article.thumbnail ? article.thumbnail : url.images("default.jpg") }}"/>
+    {% endblock %}
+    {% block publisher %}
+        <meta-data itemscope="" itemprop="author publisher" itemtype="http://schema.org/Person">
+            <meta itemprop="url" content="{{ author.url }}"/>
+            <meta itemprop="name" content="{{ author.name }}"/>
+            <meta itemprop="email" content="{{ author.email }}"/>
+            <meta itemprop="image" content="{{ url.images("avatar.png") }}"/>
+        </meta-data>
+    {% endblock %}
+</meta-data>

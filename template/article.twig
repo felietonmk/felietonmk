@@ -5,7 +5,7 @@
         {#<h4 class="article-category"><a href="{{ article.category.url }}">{{ article.category.name }}</a></h4>#}
         <h2 itemprop="headline">{{ article.title }}</h2>
         <div class="hyphenate" itemprop="articleBody">
-            {{ article.content.html | raw }}
+            {{ article.text | raw }}
         </div>
     </article>
     <div class="fb-comments" data-href="{{ article.url }}" data-width="100%" data-numposts="5"></div>
@@ -13,19 +13,19 @@
 
 {% block side %}
     <table class="content-side-info">
-        {% if (article.created | localDate) != (article.content.created | localDate) %}
+        {% if (article.created | localDate) != (article.modified | localDate) %}
             <tr>
                 <td>Aktualizacja:</td><td>{{ article.created | localDate }}</td>
             </tr>
         {% endif %}
         <tr>
-            <td>Publikacja:</td><td>{{ article.content.created | localDate }}</td>
+            <td>Publikacja:</td><td>{{ article.modified | localDate }}</td>
         </tr>
     </table>
     <table class="content-side-info">
         {% for key, value in authors %}
             <tr>
-                <td>{{ value.name }}:</td> {# role #}
+                <td>{{ value.name }}:</td> {# role: editor, translator, sponsor, editor, author #}
                 <td>
                     {% for author in value.users %}
                         <span itemprop="{{ key }}" itemscope itemtype="http://schema.org/Person">

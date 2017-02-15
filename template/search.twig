@@ -1,0 +1,26 @@
+{% extends "page.twig" %}
+
+{% block content %}
+    <article class="article">
+        <h2 itemprop="headline">Wyszukiwarka</h2>
+        <div class="hyphenate">
+            <div id="tipue_search_content"></div>
+        </div>
+    </article>
+{% endblock %}
+
+{% block css %}
+    <link href="{{ url.theme('/css/tipuesearch.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block js %}
+    <script src="{{ url.theme('/js/tipuesearch.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#tipue_search_input').tipuesearch({
+                'mode': 'json',
+                'contentLocation': '{{ url.to("data/articles.json") }}'
+            });
+        });
+    </script>
+{% endblock %}

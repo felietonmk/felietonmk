@@ -3,13 +3,17 @@
 		<img src="{{ url.images("logo.png") }}" alt="{{ site.name }}"/>
 	</a>
 	
-	{% if article.id > 1 %}
-		<a class="bigger" href="#">&#8249;</a>
+	{% if article %}
+		{% if id > 1 %}
+			<a class="bigger" href="{{ url.to("articles/"~(id - 1)~".html") }}">&#8249;</a>
+		{% endif %}
+		<a href="{{ url.to("list.html") }}">{{ id }}</a>
+		<a class="bigger" href="{{ url.to("articles/"~(id + 1)~".html") }}">&#8250;</a>
+	{% else %}
+		<a href="{{ url.to("list.html") }}">☰</a>
 	{% endif %}
-	<a href="#">{{ article.id + 1 }}</a>
-	<a class="bigger" href="#">&#8250;</a>
 
-	<form class="search" action="search.html">
+	<form class="search" action="{{ url.to("search.html") }}">
 		<input type="text" name="q" id="tipue_search_input" placeholder="Szukaj" pattern=".{3,}" title="Wymagane są przynajmniej 3 znaki" required>
 		<button type="submit" id="search">🔎</button>
 	</form>

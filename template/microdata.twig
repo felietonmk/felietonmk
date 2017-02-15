@@ -1,30 +1,30 @@
 <meta-data>
     {% block custom %}
-        <meta itemprop="isAccessibleForFree" content="True"/>
-        <meta itemprop="datePublished" content="{{ article.created | isoDate }}"/>
-        <meta itemprop="dateModified" content="{{ article.modified | isoDate }}"/>
-        <meta itemprop="dateCreated" content="{{ article.created | isoDate }}"/>
-        <meta itemprop="inLanguage" content="pl-PL"/>
-        <meta itemprop="url" content="{{ article.url }}"/>
-        <meta itemprop="keywords" content="{{ article.tags }}"/>
-        <meta itemprop="version" content="{{ article.version }}" />
+        <meta itemprop="isAccessibleForFree" content="True">
+        <meta itemprop="datePublished" content="{{ article.created | isoDate }}">
+        <meta itemprop="dateModified" content="{{ article.modified | isoDate }}">
+        <meta itemprop="dateCreated" content="{{ article.created | isoDate }}">
+        <meta itemprop="inLanguage" content="pl-PL">
+        <meta itemprop="url" content="{{ article.url }}">
+        <meta itemprop="keywords" content="{{ article.tags }}">
+        <meta itemprop="version" content="{{ article.version }}" >
         <meta-data itemprop="image" itemtype="http://schema.org/ImageObject" itemscope="">
-            <meta itemprop="url" content="{{ article.thumbnail ? article.thumbnail : url.images("default.jpg", true) }}" />
-            <meta itemprop="width" content="1024" />
-            <meta itemprop="height" content="1024" />
+            <meta itemprop="url" content="{{ article.thumbnail ? article.thumbnail : url.images("default.jpg", true) }}" >
+            <meta itemprop="width" content="1024" >
+            <meta itemprop="height" content="1024" >
         </meta-data>
         {% if article.description %}
-            <meta itemprop="about" content="{{ article.description }}"/>
+            <meta itemprop="about" content="{{ article.description }}">
         {% endif %}
         
     {% endblock %}
     {% block publisher %}
         <meta-data itemscope="" itemprop="author publisher copyrightHolder" itemtype="http://schema.org/Person">
-            <meta itemprop="url" content="{{ author.url }}"/>
-            <meta itemprop="name" content="{{ author.name }}"/>
-            <meta itemprop="email" content="{{ author.email }}"/>
+            <meta itemprop="url" content="{{ author.url }}">
+            <meta itemprop="name" content="{{ author.name }}">
+            <meta itemprop="email" content="{{ author.email }}">
             <meta itemprop="gender" itemtype="http://schema.org/GenderType" content="http://schema.org/Male">
-            <meta itemprop="image" content="{{ url.images("avatar.png", true) }}"/>
+            <meta itemprop="image" content="{{ url.images("avatar.png", true) }}">
         </meta-data>
     {% endblock %}
 </meta-data>

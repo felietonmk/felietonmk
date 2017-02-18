@@ -10,7 +10,7 @@
 		<a href="{{ url.to("list.html") }}">{{ id }}</a>
 		<a class="bigger" href="{{ url.to("articles/"~(id + 1)~".html") }}">&#8250;</a>
 	{% else %}
-		<a href="{{ url.to("list.html") }}">☰</a>
+		<a href="{{ url.to("list.html") }}" style="font-size: 1.25em;">☰</a>
 	{% endif %}
 
 	<form class="search" action="{{ url.to("search.html") }}">

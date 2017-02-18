@@ -1,10 +1,10 @@
 CACHE MANIFEST
-# v1
+# v2
 
 CACHE:
 index.html
 search.html
-template/css/style.less
+template/css/style.css
 template/img/logo.png
 template/img/logo-small.png
 template/css/Dosis/Dosis.css

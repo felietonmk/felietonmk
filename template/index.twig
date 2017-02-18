@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ site.language|slice(0, 2)  }}">
-    <head>
+    <head manifest="{{ url.to("cache.appcache", true) }}">
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1" name="viewport">
         <link href="{{ url.to("favicon.ico", true) }}" rel="shortcut icon">

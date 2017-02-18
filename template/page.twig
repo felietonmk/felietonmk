@@ -18,12 +18,12 @@
         <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-text="{{ site.name }}" data-url="{{ site.url }}" data-hashtags="{{ site.hashtag }}" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
 
-    <div class="content-side-info">
+    {#<div class="content-side-info">
         <form method="post" action="https://app.freshmail.com/pl/actions/subscribe/">
             <input type="hidden" name="subscribers_list_hash" value="0oo79u24hd" >
             <label for="freshmail_email">Newsletter</label>
-            <input type="text" id="freshmail_email" type="email" placeholder="E-mail" name="freshmail_email">
+            <input type="email" id="freshmail_email" placeholder="E-mail" name="freshmail_email" required>
             <button type="submit">Zapisz się</button>
         </form>
-    </div>
+    </div>#}
 {% endblock %}

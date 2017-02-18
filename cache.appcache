@@ -1,0 +1,28 @@
+CACHE MANIFEST
+# v1
+
+CACHE:
+index.html
+search.html
+template/css/style.less
+template/img/logo.png
+template/img/logo-small.png
+template/css/Dosis/Dosis.css
+template/css/Dosis/dosis-regularDosis.svg
+template/css/Dosis/dosis-regularDosis.ttf
+template/css/Dosis/dosis-regularDosis.eot
+template/css/Dosis/dosis-regularDosis.woff2
+template/css/Dosis/dosis-regularDosis.woff
+template/js/jquery.min.js
+template/js/Hyphenator.min.js
+template/js/patterns/pl.js
+template/js/tipuesearch.min.js
+template/js/tipuesearch_set.js
+data/articles.json
+
+NETWORK:
+data/dates.json
+
+#FALLBACK:
+#*.php /offline.html
+#images/ images/offline.jpg

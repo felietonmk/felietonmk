@@ -13,14 +13,14 @@
 
 {% block side %}
     <table class="content-side-info">
-        {% if (article.created | localDate) != (article.modified | localDate) %}
-            <tr>
-                <td>Aktualizacja:</td><td>{{ article.created | localDate }}</td>
-            </tr>
-        {% endif %}
         <tr>
             <td>Publikacja:</td><td>{{ article.modified | localDate }}</td>
         </tr>
+        {% if (article.created | localDate) != (article.created | localDate) %}
+            <tr>
+                <td>Aktualizacja:</td><td>{{ article.modified | localDate }}</td>
+            </tr>
+        {% endif %}
     </table>
     
     {% if article.authors %}

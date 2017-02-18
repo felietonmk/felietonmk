@@ -4,17 +4,17 @@
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1" name="viewport">
         <link href="{{ url.to("favicon.ico", true) }}" rel="shortcut icon">
-        <title>{% block title %}{{ article.title ? article.title~" — " }}{% endblock %}{{ site.name }}</title>
+        <title>{% block title %}{{ article.title ? id~". "~article.title~" — " }}{% endblock %}{{ site.name }}</title>
         <meta name="description" content="{{ site.description }}">
         <meta name="keywords" content="{{ site.keywords~" "~(article.tags ? article.tags) }}">
         <meta name="format-detection" content="telephone=no">
         <meta name="format-detection" content="address=no">
 
         {% block meta %}
-            <meta property="og:title" content="{{ article ? article.title~" — "~site.name : site.name }}">
+            <meta property="og:title" content="{{ article ? id~". "~article.title~" — "~site.name : site.name }}">
             <meta property="og:description" content="{{ article.description ? article.description : site.description }}">
             <meta property="og:url" content="{{ article ? article.url : site.url }}">
-            <meta property="og:image" content="{{ article.thumbnail ? article.thumbnail : url.images("banner.jpg", true) }}">
+            <meta property="og:image" content="{{ article.thumbnail ? article.thumbnail : url.images("banner.png", true) }}">
             <meta property="og:site_name" content="{{ site.name }}"> 
             <meta property="fb:pages" content="1814137632137321">
             <meta property="fb:app_id" content="214751045595488">
@@ -46,6 +46,9 @@
                 {% include "header.twig" %}
             </header>
             <div class="content" {% block attributes %}{% endblock %}>
+                <div class="content-main">
+                    {% block content %}{% endblock %}
+                </div>
                 <aside class="content-side">
                     <a href="{{ site.url }}" class="logo">
                         <img src="{{ url.images("logo.png") }}" alt="{{ site.name }}"/>
@@ -53,15 +56,12 @@
                     {% block side %}{% endblock %}
                     {% block footer %}
                         <footer class="footer">
-                            &copy; {{ "now"|date("Y") }} by <a href="{{ author.url }}">{{ author.name }}</a>.<br/>
+                            {#&copy; {{ "now"|date("Y") }} by <a href="{{ author.url }}">{{ author.name }}</a>.<br/>#}
                             Dosis font by <a href="http://www.impallari.com/dosis">Impallari Type</a>.<br/>
                             Hosted on <a href="http://github.com">GitHub</a>.
                         </footer>
                     {% endblock %}
                 </aside>
-                <div class="content-main">
-                    {% block content %}{% endblock %}
-                </div>
             </div>
         </div>
 

@@ -13,6 +13,10 @@
 @header-height:38px;//42px;
 @main-width:100% - @side-width;
 
+@link:#383258;
+@link-visited:#001928;
+@link-hover:#383258;
+
 
 //@header-padding : @side-width - 5%;
 
@@ -31,6 +35,15 @@ body {
 
 a {
     text-decoration:none;
+    color:@link;
+    &:hover {
+        color:@link-hover;
+        text-decoration:underline;
+    }
+
+    &:visited {
+        color:@link-visited;
+    }
 }
 
 ::selection {
@@ -71,11 +84,11 @@ a {
     font-size: .85em;
     font-weight:500;
     line-height:130%;
-    a {
+    /*a {
         //font-weight:600;
         text-decoration:underline;
         color:@text;
-    }
+    }*/
 }
 
 .header {
@@ -238,10 +251,10 @@ a {
         padding:0 5px;
         display:block;
         width:@main-width;
-        float:left;
+        float:right;
     }
-
 }
+
 
 /* @media (luminosity: normal) {
     body {

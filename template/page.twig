@@ -9,12 +9,21 @@
 {% endblock %}
 
 {% block side %}
-    <div class="content-side-info" style="padding:0">
+    {#<div class="content-side-info" style="padding:0">
         <div class="fb-page" data-href="https://www.facebook.com/felietonmk/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"></div>
-    </div>
-    {#
+    </div>#}
+    
     <div class="content-side-info" style="text-align:center;">
         <div class="fb-like" data-href="{{ site.url }}" data-layout="button" data-action="like" data-size="large" data-show-faces="false" data-share="false"></div>
         <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-text="{{ site.name }}" data-url="{{ site.url }}" data-hashtags="{{ site.hashtag }}" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-    </div> #}
+    </div>
+
+    <div class="content-side-info">
+        <form method="post" action="https://app.freshmail.com/pl/actions/subscribe/">
+            <input type="hidden" name="subscribers_list_hash" value="0oo79u24hd" >
+            <label for="freshmail_email">Newsletter</label>
+            <input type="text" id="freshmail_email" type="email" placeholder="E-mail" name="freshmail_email">
+            <button type="submit">Zapisz się</button>
+        </form>
+    </div>
 {% endblock %}

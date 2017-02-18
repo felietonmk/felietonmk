@@ -91,6 +91,21 @@ a {
     }*/
 }
 
+#freshmail_email, .search > input {
+    font-family: 'Dosis', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:1em;
+    width:100%;
+    padding:0 5px;
+    background:white;
+    border:none;
+    outline: none;
+    height:38px;
+    &:hover, &:active {
+        border:none;
+        outline: 1px solid @nav; 
+    }
+}
+
 .header {
     z-index:1;
     position:fixed;
@@ -154,22 +169,11 @@ a {
             position: relative;
             overflow:hidden;
             > input {
-                font-family: 'Dosis', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-                font-size:1em;
-                width:100%;
                 margin-right:-@header-height + 1px;
                 padding-right:@header-height;
-                padding-left:5px;
                 display:block;
                 float:left;
                 height:100%;
-                background:white;
-                border:none;
-                outline: none;
-                &:hover, &:active {
-                    border:none;
-                    outline: none; 
-                }
             }
             button {
                 background:none;
@@ -191,7 +195,7 @@ a {
 .fb-like, .twitter-share-button {
     vertical-align: top;
     display:inline-block;
-    margin:2px 0;
+    margin:2px;
 }
 
 #disqus_thread, .fb-comments {
@@ -234,7 +238,7 @@ a {
                 padding-bottom:0.5em;
             }
 
-            tr td:first-of-type, b{
+            tr td:first-of-type, b, label{
                 font-weight:600;
                 padding-bottom:0em;
                 padding-right:0.3em;
@@ -245,6 +249,9 @@ a {
                     padding-bottom:0em;
                 }
             } 
+            label {
+                display:block;
+            }
         }
     }
     &-main {

@@ -99,10 +99,10 @@ a {
     background:white;
     border:none;
     outline: none;
-    height:38px;
+    height:28px;
     &:hover, &:active {
         border:none;
-        outline: 1px solid @nav; 
+        outline: 2px solid @nav; 
     }
 }
 
@@ -251,6 +251,32 @@ a {
             } 
             label {
                 display:block;
+                margin-bottom:0.2em;
+            }
+
+            input {
+                font-size:0.95em;
+            }
+
+            button {
+                font-size:0.95em;
+                padding:0 @header-height/4 0 @header-height/4;
+                height:28px;
+                display:block;
+                text-align:center;
+                line-height:28px;
+                background:@background;
+                margin-top:3px;
+                font-weight:500;
+                font-size: 0.95em;
+                color:@text;
+                border: none;
+
+                transition:background-color 500ms;
+                &:hover, &.hover, &:active {
+                    background:@nav-hover;
+                    text-decoration:none;
+                }
             }
         }
     }

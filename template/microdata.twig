@@ -9,7 +9,7 @@
         <meta itemprop="keywords" content="{{ article.tags }}">
         <meta itemprop="version" content="{{ article.version }}" >
         <meta-data itemprop="image" itemtype="http://schema.org/ImageObject" itemscope="">
-            <meta itemprop="url" content="{{ article.thumbnail ? article.thumbnail : url.images("default.jpg", true) }}" >
+            <meta itemprop="url" content="{{ article.thumbnail ? article.thumbnail : url.images("banner.png", true) }}" >
             <meta itemprop="width" content="1024" >
             <meta itemprop="height" content="1024" >
         </meta-data>
@@ -22,7 +22,7 @@
         <meta-data itemscope="" itemprop="author publisher copyrightHolder" itemtype="http://schema.org/Person">
             <meta itemprop="url" content="{{ author.url }}">
             <meta itemprop="name" content="{{ author.name }}">
-            <meta itemprop="email" content="{{ author.email }}">
+            {#<meta itemprop="email" content="{{ author.email }}">#}
             <meta itemprop="gender" itemtype="http://schema.org/GenderType" content="http://schema.org/Male">
             <meta itemprop="image" content="{{ url.images("avatar.png", true) }}">
         </meta-data>

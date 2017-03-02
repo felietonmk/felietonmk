@@ -14,7 +14,7 @@
             <meta property="og:title" content="{{ article ? id~". "~article.title~" — "~site.name : site.name }}">
             <meta property="og:description" content="{{ article.description ? article.description : site.description }}">
             <meta property="og:url" content="{{ article ? article.url : site.url }}">
-            <meta property="og:image" content="{{ article.thumbnail ? article.thumbnail : url.images("banner.png", true) }}">
+            <meta property="og:image" content="{{ article.thumbnail ? article.thumbnail : url.images("logo.png", true) }}">
             <meta property="og:site_name" content="{{ site.name }}"> 
             <meta property="fb:pages" content="1814137632137321">
             <meta property="fb:app_id" content="214751045595488">
@@ -23,7 +23,7 @@
 
         <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ site.rss }}">
 
-        <link href="{{ url.images("banners/64.png", true) }}" rel="apple-touch-icon">
+        {#<link href="{{ url.images("banners/64.png", true) }}" rel="apple-touch-icon">
         <link href="{{ url.images("banners/72.png", true) }}" rel="apple-touch-icon" sizes="72x72">
         <link href="{{ url.images("banners/114.png", true) }}" rel="apple-touch-icon" sizes="114x114">
         <link href="{{ url.images("banners/144.png", true) }}" rel="apple-touch-icon" sizes="144x144">
@@ -33,7 +33,7 @@
         <meta name="msapplication-square70x70logo" content="{{ url.images("banners/70.png", true) }}">
         <meta name="msapplication-square150x150logo" content="{{ url.images("banners/150.png", true) }}">
         <meta name="msapplication-wide310x150logo" content="{{ url.images("banners/310x150.jpg", true) }}">
-        <meta name="msapplication-square310x310logo" content="{{ url.images("banners/310.jpg", true) }}">
+        <meta name="msapplication-square310x310logo" content="{{ url.images("banners/310.jpg", true) }}">#}
 
         <link href="{{ url.theme('/css/Dosis/Dosis.css') }}" rel="stylesheet">
         <link href="{{ url.theme('/css/style.css') }}" rel="stylesheet">
@@ -56,7 +56,7 @@
                     {% block side %}{% endblock %}
                     {% block footer %}
                         <footer class="footer">
-                            {#&copy; {{ "now"|date("Y") }} by <a href="{{ author.url }}">{{ author.name }}</a>.<br/>#}
+                            &copy; {{ "now"|date("Y") }} by <a href="{{ author.url }}">{{ author.name }}</a>.<br/>
                             Dosis font by <a href="http://www.impallari.com/dosis">Impallari Type</a>.<br/>
                             Hosted on <a href="http://github.com">GitHub</a>.
                         </footer>
@@ -75,6 +75,7 @@
             }); 
             Hyphenator.run();
         </script>
+        {% block js %}{% endblock %}
         <script>
             (function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
@@ -93,6 +94,5 @@
             ga('create', 'UA-55824875-5', 'auto');
             ga('send', 'pageview');
         </script>
-        {% block js %}{% endblock %}
 	</body>
 </html>

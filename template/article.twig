@@ -64,3 +64,8 @@
         authors : [{"role":"editor","name":"Xyz","site":"url"}]
     #}
 {% endblock %}
+
+{% block js %}
+    <script>var id = {{ id }};</script>
+    <script src="{{ url.theme('/js/next.js') }}"></script>
+{% endblock %}

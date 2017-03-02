@@ -5,7 +5,7 @@
         <meta content="width=device-width, initial-scale=1" name="viewport">
         <link href="{{ url.to("favicon.ico", true) }}" rel="shortcut icon">
         <title>{% block title %}{{ article.title ? id~". "~article.title~" — " }}{% endblock %}{{ site.name }}</title>
-        <meta name="description" content="{{ site.description }}">
+        <meta name="description" content="{{ article.description ? article.description : site.description }}">
         <meta name="keywords" content="{{ site.keywords~" "~(article.tags ? article.tags) }}">
         <meta name="format-detection" content="telephone=no">
         <meta name="format-detection" content="address=no">

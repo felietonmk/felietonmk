@@ -236,6 +236,12 @@ a {
 
             tr td {
                 padding-bottom:0.5em;
+                > span {
+                    padding: 2px 0;
+                    display: inline-block;
+                    &:first-of-type { padding-top:0; }
+                    &:last-of-type { padding-top:0; }
+                }
             }
 
             tr td:first-of-type, b, label{

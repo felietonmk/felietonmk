@@ -14,9 +14,9 @@
 {% block side %}
     <table class="content-side-info">
         <tr>
-            <td>Publikacja:</td><td>{{ article.modified | localDate }}</td>
+            <td>Napisano:</td><td>{{ article.created | localDate }}</td>
         </tr>
-        {% if (article.created | localDate) != (article.created | localDate) %}
+        {% if (article.created | localDate) != (article.modified | localDate) %}
             <tr>
                 <td>Aktualizacja:</td><td>{{ article.modified | localDate }}</td>
             </tr>
@@ -32,7 +32,7 @@
                         {% for author in value.users %}
                             <span itemprop="{{ key }}" itemscope itemtype="http://schema.org/Person">
                                 {% set tag = author.url ? "a" : "span" %}
-                                <{{ tag }} itemprop="name" content="{{ author.name }}" {{ tag == "a" ? 'href="'~author.url~'"' }}>{{ author.name }}</{{ tag }}>{% if loop.length > 1 and loop.revindex != 1 %},{% endif %}
+                                <{{ tag }} itemprop="name" content="{{ author.name }}" {{ tag == "a" ? 'href="'~author.url~'"' }}>{{ author.name }}</{{ tag }}>{% if loop.length > 1 and loop.revindex != 1 %},<br>{% endif %}
                             </span>
                         {% endfor %}
                     </td>
